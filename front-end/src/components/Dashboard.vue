@@ -4,7 +4,7 @@
   <div class="menu">
     <center>
       <h2>Logged in as {{user.firstName}} {{user.lastName}} 
-        <button @click="logout"><i class="fas fa-sign-out-alt"></i></button>
+        <button class="pure-button pure-button-primary" @click="logout"><i class="fas fa-sign-out-alt"></i></button>
       </h2>
     </center>
   </div>
@@ -82,7 +82,7 @@
         <input v-model="findItem.genre">
         <div class="suggestions" v-if="genreSuggestions.length > 0">
         <div class="suggestion" v-for="s in genreSuggestions" :key="s.id" @click="selectGenreFind(s)">{{s.genreName}}</div>
-          </div>
+        </div>
 
         <img :src="findItem.path" />
       </div>
@@ -264,6 +264,7 @@ label {
           genreName: this.genreName
         });
         this.addGenre = r1.data;
+        this.genreName = "";
         this.getGenres();
       } catch(error) {
         console.log(error)

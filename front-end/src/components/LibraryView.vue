@@ -1,10 +1,18 @@
 <template>
 <div>
-  <center><h1>My Library</h1></center>
+  <center><h1>My Library</h1>
+
+  <div class="search">
+    <h2>Search by Genre</h2>
+      <form class="pure-form">
+        <i class="fas fa-search"></i><input v-model="searchText" />
+      </form>
+  </div></center>
+
 <div class="wrapper">
     
   <div class="books">
-    <div class="book" v-for="book in books" :key="book.id">
+    <div class="book" v-for="book in bookList" :key="book.id">
       <div class="info">
         <h1>{{book.title}}</h1>
         <p>{{book.author}}</p>
@@ -32,6 +40,7 @@ export default {
   data() {
     return {
       books: [],
+      searchText: '',
     }
   },
   created() {
@@ -41,6 +50,9 @@ export default {
     user() {
       return this.$root.$data.user;
     },
+    bookList() {
+      return this.books.filter(book => book.genre.toLowerCase().search(this.searchText.toLowerCase()) >= 0);    
+    }
   },
   methods: {
     async getBooks() {
@@ -72,6 +84,7 @@ export default {
 
 form {
   display: table;
+  margin-bottom: 10px;
   width: 100%;
 }
 
