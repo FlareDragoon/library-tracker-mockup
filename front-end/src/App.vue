@@ -13,7 +13,8 @@
 
     <div class = "footer">
       <hr>
-      <p>My Github for this assignment can be found <a href="https://github.com/FlareDragoon/cp4">here</a></p>
+      <p>My Github for this assignment can be found <a href="https://github.com/FlareDragoon/260final">here</a></p>
+      <p>I spent approximately five and a half hours working on this project.</p>
     </div>
     
   </div>
